@@ -1,23 +1,10 @@
 <!DOCTYPE html>
-<html lang>
-
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cartão Pergunta</title>
+    <title>Flashcards de Perguntas e Respostas</title>
     <style>
-        body {
-            align-items: center;
-            display: flex;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQYbCNJqYm1yLP_KPT1BhPNKqZ-9oQShDwmbg&usqp=CAU);
-            width: 100%;
-            justify-content: center;
-            flex-direction: column-reverse;
-        }
-
         * {
             margin: 0;
             padding: 0;
@@ -25,24 +12,34 @@
             font-family: Arial, sans-serif;
         }
 
-       .container {
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh;
+            background-image: url(https://img.freepik.com/vetores-premium/fundo-de-moldura-grunge_1102-1452.jpg);
+            width: 100%;
+            flex-direction: column-reverse;
+        }
+
+        .container {
             perspective: 1000px;
         }
 
-       .flashcard {
+        .flashcard {
             width: 300px;
             height: 200px;
             position: relative;
             transform-style: preserve-3d;
             transition: transform 0.8s;
             cursor: pointer;
-}
-
-       .flashcard.is-flipped {
-            transform: SlidY(180deg);
         }
 
-      .face {
+        .flashcard.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .face {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -53,16 +50,16 @@
             font-size: 20px;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgb(255, 71, 107);
-        } 
+            box-shadow: 0 4px 8px rgb(247, 247, 247);
+        }
 
-      .front {
-            background-color: #808000;
+        .front {
+            background-color: #00eeff;
         }
 
         .back {
-            background-color: #808080;
-            transform: slideY(180deg);
+            background-color: #3d50f5;
+            transform: rotateY(180deg);
         }
 
         .button-container {
@@ -72,7 +69,7 @@
             width: 300px;
         }
 
-       button {
+        button {
             padding: 10px 20px;
             background-color: #000000;
             color: rgb(255, 217, 0);
@@ -84,12 +81,11 @@
         button:disabled {
             background-color: #a7a7a7;
         }
-
     </style>
 </head>
 <body>
-
-<div class="container">
+    
+    <div class="container">
         <div class="flashcard" id="flashcard">
             <div class="face front" id="frontText"><h1>Pergunta 1: O que é HTML?</h1></div>
             <div class="face back" id="backText"><h1>Resposta: HTML é uma linguagem de marcação usada para criar páginas web.</h1></div>
@@ -97,11 +93,11 @@
     </div>
 
     <div class="button-container">
-        <button id="prevBtn" disabled>Previous</button>
-        <button id="nextBtn">Next</button>
+        <button id="prevBtn" disabled>Anterior</button>
+        <button id="nextBtn">Próximo</button>
     </div>
 
-<script>
+    <script>
         const flashcard = document.getElementById('flashcard');
         const frontText = document.getElementById('frontText');
         const backText = document.getElementById('backText');
@@ -109,8 +105,8 @@
         const nextBtn = document.getElementById('nextBtn');
 
         const flashcards = [
-            { front: 'Pergunta: O que significa fórmula química?', back: 'Resposta: Fórmulas de química são as formas de representar os elementos e/ou compostos químicos.' },
-            { front: 'o que é logradouro?', back: 'espaço público destinado à circulação de pessoas e veículos.' },
+            { front: 'Pergunta 1: O que é HTML?', back: 'Resposta: HTML é uma linguagem de marcação usada para criar páginas web.' },
+            { front: 'Pergunta 2: O que é CSS?', back: 'Resposta: CSS é uma linguagem de estilos usada para estilizar elementos HTML.' },
             { front: 'Pergunta 3: O que é JavaScript?', back: 'Resposta: JavaScript é uma linguagem de programação usada para criar interatividade em páginas web.' },
             { front: 'Pergunta 4: Que tag e usada para espaçar uma linha?', back: 'Resposta: E tag br que termina uma linhan em um ponto determinado.'}
         ];
@@ -145,6 +141,5 @@
 
         updateFlashcard(currentIndex);
     </script>
-
 </body>
 </html>
