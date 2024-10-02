@@ -18,6 +18,8 @@
             align-items: center;
             height: 100vh;
             background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREXZRp9Cu_4H3RMW9MTiVMWnWil952Y_P2R2RtliFVzwWQ1FDY9LYbvdA&s=10);
+            background-size: cover; /* Ajusta a imagem para cobrir toda a área */
+            background-position: center; /* Centraliza a imagem */
             width: 100%;
             flex-direction: column-reverse;
         }
@@ -50,7 +52,7 @@
             font-size: 20px;
             border-radius: 10px;
             padding: 20px;
-            box-shadow: 0 4px 8px rgb(247, 247, 247);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leve ajuste na sombra */
         }
 
         .front {
@@ -84,11 +86,11 @@
     </style>
 </head>
 <body>
-    
+
     <div class="container">
         <div class="flashcard" id="flashcard">
             <div class="face front" id="frontText"><h1>Pergunta 1: Qual tag é usada para disponibilizar link?</h1></div>
-            <div class="face back" id="backText"><h1>Resposta: É a tag a</h1></div>
+            <div class="face back" id="backText"><h1>Resposta: É a tag <a>.</h1></div>
         </div>
     </div>
 
